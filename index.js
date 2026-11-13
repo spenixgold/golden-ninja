@@ -13,7 +13,7 @@ async function startBot() {
   });
 
   if (!sock.authState.creds.registered) {
-    const phoneNumber ="254102515955";
+       const phoneNumber = "254745325645";
     setTimeout(async () => {
       let code = await sock.requestPairingCode(phoneNumber);
       console.log("YOUR PAIRING CODE: " + code);
