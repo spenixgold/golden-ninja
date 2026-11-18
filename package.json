@@ -1,0 +1,14 @@
+{
+  "name": "spenix-bot",
+  "version": "1.0.0",
+  "description": "Spenix Gold Bot",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "@whiskeysockets/baileys": "^7.0.0-rc14",
+    "pino": "^10.4.0"
+  }
+}
