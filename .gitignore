@@ -1,6 +1,2 @@
-node_modules/
-session/
-pgdata/
-pgsock/
-*.log
-*.zip
+node_modules
+session
