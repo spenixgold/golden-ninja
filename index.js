@@ -121,7 +121,7 @@ if (cmd === 'owner') return reply('👑 Owner: SPENIX GOLD\nBot: GOLDEN NINJA V2
     if (cmd === 'ninja') return reply('🥷 *NINJA MODE ACTIVATED* 🥷\nInvisible. Silent. Golden.');
 
     // ===== GAMES =====
-    if (cmd === 'slot' || cmd === 'slots') { const e=['🍒','🍋','🥷','⭐','💎','🔥']; const a=e[Math.floor(Math.random()*6)],b=e[Math.floor(Math.random()*6)],c=e[Math.floor(Math.random()*6)]; return reply(`🎰 SLOT: [ ${a} | ${b} | ${c} ]\n${a===b&&b===c?'JACKPOT! 🎉 You won!':'Try again!')}`); }
+    if (cmd === 'slot' || cmd === 'slots') { const e=['🍒','🍋','🤖','⭐','💎','🔥']; const a=e[Math.floor(Math.random()*6)], b=e[Math.floor(Math.random()*6)], c=e[Math.floor(Math.random()*6)]; return reply('🎰 SLOT: [ '+a+' | '+b+' | '+c+' ]\n'+(a===b && b===c ? 'JACKPOT! You won!' : 'Try again!')); }
     if (cmd === 'dice' || cmd === 'dice2') return reply('🎲 You rolled: '+(Math.floor(Math.random()*6)+1));
     if (cmd === 'coinflip' || cmd === 'flip' || cmd === 'coin') return reply('🪙 '+ (Math.random()>0.5?'Heads':'Tails'));
     if (cmd === 'rps' || cmd === 'rock' || cmd === 'paper' || cmd === 'scissors') { const p=['rock','paper','scissors']; return reply('I chose: '+p[Math.floor(Math.random()*3)]+' ✊✋✌️'); }
