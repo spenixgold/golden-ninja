@@ -5,6 +5,7 @@
   "scripts": { "start": "node index.js" },
   "dependencies": {
     "@whiskeysockets/baileys": "latest",
-    "pino": "latest"
+        "pino": "latest",
+    "express": "latest"
   }
 }
