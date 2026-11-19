@@ -66,7 +66,29 @@ async function start() {
     if (cmd === 'menu3') return reply(`🥷 *MENU 3 - ALL 373*\nUse .menu for main. All commands work with . prefix.\nTotal categories: Fun 80, Games 40, Group 50, Download 30, Tools 50, Text 30, Anime 30, Religion 20, Owner 20, Misc 23 = 373+\n\nTry: .anime .waifu .neko .husbando .pray .bible .quran .motivate .affirmation .hello .bye .gm .gn .welcome .rules .rules2 .info .about .owner .creator .donate .support .feedback .report .suggest`);
     if (cmd === 'ping') return reply(`🥷 Pong! GOLDEN NINJA is Fast!\nSpeed: ${Date.now()%100}ms`);
     if (cmd === 'alive') return reply('🥷 YES I AM ALIVE! GOLDEN NINJA V2 ONLINE 24/7');
-    if (cmd === 'owner') return reply('👑 Owner: SPENIX GOLD\nBot: GOLDEN NINJA V2\nTap "Chat with Owner" on our website to reach owner');
+if (cmd === 'owner') {
+    let photoUrl = 'https://i.imgur.com/default-ninja.jpg';
+    try { photoUrl = await sock.profilePictureUrl(sock.user.id, 'image'); } catch(e) {}
+    const BOT_NUMBER = '254710987615';
+    const vcard = `BEGIN:VCARD\nVERSION:3.0\nFN:GOLDEN NINJA OWNER\nORG:GOLDEN NINJA\nPHOTO;TYPE=JPEG;VALUE=uri:${photoUrl}\nTEL;TYPE=CELL;TYPE=VOICE;waid=${BOT_NUMBER}:+${BOT_NUMBER}\nEND:VCARD`;
+    await sock.sendMessage(from, {
+        contacts: { displayName: 'GOLDEN NINJA OWNER', contacts: [{ vcard }] }
+    });
+    await sock.sendMessage(from, { text: `🥷 *GOLDEN NINJA OWNER*\n\nContact saved with Bot Photo ✅\n\nNeed owner privately? Type:\n.report <your message>\n\nExample: .report I need help` });
+    return;
+}
+
+if (cmd === 'report') {
+    const reportMsg = text || 'No message';
+    await sock.sendMessage(from, { text: `✅ Done, owner notified privately. He will reply soon.` });
+    if (OWNER) {
+        await sock.sendMessage(OWNER + '@s.whatsapp.net', {
+            text: `🥷 *NEW REPORT*\n\nFrom: ${msg.pushName || 'Unknown'}\nNumber: +${senderNum}\nMessage: ${reportMsg}`
+        });
+    }
+    return;
+}    
+if (cmd === 'owner') return reply('👑 Owner: SPENIX GOLD\nBot: GOLDEN NINJA V2\nTap "Chat with Owner" on our website to reach owner');
     if (cmd === 'info' || cmd === 'about' || cmd === 'bot') return reply('🥷 GOLDEN NINJA V2\nVersion: 2.0\nCommands: 373+\nOwner: SPENIX GOLD\nStatus: ONLINE');
     if (cmd === 'speed' || cmd === 'uptime') return reply('⚡ Speed: Super Fast\nUptime: 24/7 on Render');
     if (cmd === 'rules' || cmd === 'rule') return reply('📜 *GOLDEN NINJA RULES*\n1. No spam\n2. Respect admins\n3. No porn / abuse\n4. No links without permission\n5. Have fun 🥷');
