@@ -24,7 +24,7 @@ async function start() {
   await new Promise(r => setTimeout(r, 10000));
 
   if (!sock.authState.creds.registered) {
-    const phone = await ask("Enter BOT number: ");
+    const phone = process.env.BOT_NUMBER || await ask("Enter BOT number: ");
     try {
       console.log("Requesting code...");
       const code = await sock.requestPairingCode(phone.trim());
